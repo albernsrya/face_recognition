@@ -6,9 +6,10 @@
 # You can follow this installation instructions to get your RPi set up:
 # https://gist.github.com/ageitgey/1ac8dbe8572f3f533df6269dab35df65
 
-import face_recognition
-import picamera
 import numpy as np
+import picamera
+
+import face_recognition
 
 # Get a reference to the Raspberry Pi camera.
 # If this fails, make sure you have a camera connected to the RPi and that you
@@ -39,7 +40,8 @@ while True:
     # Loop over each face found in the frame to see if it's someone we know.
     for face_encoding in face_encodings:
         # See if the face is a match for the known face(s)
-        match = face_recognition.compare_faces([obama_face_encoding], face_encoding)
+        match = face_recognition.compare_faces([obama_face_encoding],
+                                               face_encoding)
         name = "<Unknown Person>"
 
         if match[0]:
