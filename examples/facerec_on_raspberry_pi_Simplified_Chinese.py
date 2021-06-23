@@ -6,9 +6,10 @@
 # 你可以参考这个教程配制你的树莓派：
 # https://gist.github.com/ageitgey/1ac8dbe8572f3f533df6269dab35df65
 
-import face_recognition
-import picamera
 import numpy as np
+import picamera
+
+import face_recognition
 
 # 你需要在sudo raspi-config中把camera功能打开
 camera = picamera.PiCamera()
@@ -37,7 +38,8 @@ while True:
     # 将每一个人脸与已知样本图片比对
     for face_encoding in face_encodings:
         # 看是否属于奥巴马或者拜登
-        match = face_recognition.compare_faces([obama_face_encoding], face_encoding)
+        match = face_recognition.compare_faces([obama_face_encoding],
+                                               face_encoding)
         name = "<Unknown Person>"
 
         if match[0]:
